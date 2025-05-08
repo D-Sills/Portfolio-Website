@@ -17,7 +17,7 @@ export default function FolderButton({
   label,
   onClick,
   hoverSoundSrc = '/sounds/Button2.mp3',
-  clickSoundSrc = '/sounds/Button2.mp3',
+  clickSoundSrc = '/sounds/Button3.mp3',
 }: FolderButtonProps) {
   const { enabled: audioEnabled } = useAudio();
 

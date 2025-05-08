@@ -6,6 +6,7 @@ import { IoClose, IoChevronDown } from 'react-icons/io5';
 import clsx from 'clsx';
 import { useMediaQuery } from 'react-responsive';
 import { useRef, useState, useEffect } from 'react';
+import IconButton from '@/components/icon-button';
 
 export default function FloatingPanel({
   open,
@@ -76,14 +77,11 @@ export default function FloatingPanel({
                   <div className="w-3 h-3 rounded-full bg-green-500" />
                 </div>
                 <span className="text-sm font-mono">{title}</span>
-                <button
-                  onClick={onClose}
-                  className="btn btn-xs btn-circle btn-ghost"
-                  aria-label="Close"
-                >
-                  {/* Dropdown arrow instead of X */}
-                  <IoChevronDown size={16} className="text-neutral-content" />
-                </button>
+                              <IconButton
+                icon={<IoChevronDown size={16} className="text-neutral-content" />}
+                onClick={onClose}
+                ariaLabel="Close panel"
+              />
               </div>
           
               {/* Scrollable content (fills remaining height) */}

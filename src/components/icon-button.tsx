@@ -24,7 +24,7 @@ export default function IconButton({
   sizeClass = 'w-10 h-10',
   ariaLabel = 'Icon Button',
   hoverSoundSrc = '/sounds/Button2.mp3',
-  clickSoundSrc = '/sounds/Button2.mp3',
+  clickSoundSrc = '/sounds/Button3.mp3',
 }: IconButtonProps) {
     const { enabled: audioEnabled } = useAudio();
     

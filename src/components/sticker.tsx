@@ -15,7 +15,7 @@ type CVStickerProps = {
 
 export default function CVSticker({
   hoverSoundSrc = '/sounds/Button2.mp3',
-  clickSoundSrc = '/sounds/Button2.mp3',
+  clickSoundSrc = '/sounds/Special Click Sound 6.mp3',
 }: CVStickerProps) {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const controls = useAnimation();
@@ -38,6 +38,12 @@ export default function CVSticker({
 
   const handleClick = () => {
     play(clickSoundSrc);
+    
+    const link = document.createElement('a');
+    link.href = '/CV.pdf'; // Path to your CV file in the public folder
+    link.download = 'CV.pdf'; // Name for the downloaded file
+    document.body.appendChild(link);
+    link.click();
   };
 
   return (
@@ -56,8 +62,6 @@ export default function CVSticker({
       {/* Desktop label */}
       {!isMobile && (
         <motion.div
-        animate={{ y: [0, -2, 0], rotate: [0, 1.5, -1.5, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
         className="mb-2 text-xs text-center bg-neutral px-3 py-1 rounded-full shadow border border-base-300 font-mono text-neutral-content">
           Grab my CV!
         </motion.div>

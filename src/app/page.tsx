@@ -36,9 +36,7 @@ export default function Home() {
     <div className="fixed inset-0 z-0 overflow-hidden">
       {/* noise overlay */}
       <div className="absolute inset-0 bg-[url('/images/noise.jpg')] opacity-5 pointer-events-none" />
-      {/* Background image */}
-      <div className="absolute inset-0 bg-[url('/images/bg.jpg')] bg-cover bg-center opacity-50 pointer-events-none" />
-    
+
       {/* Start background music (muted by default) */}
       <MusicPlayer src="/sounds/BGM.mp3" volume={0.3} />
     
@@ -69,7 +67,6 @@ export default function Home() {
               words={[
                 "Full-stack developer.",
                 "Designer's eye.",
-                "Fast frontends. Robust systems."
               ]}
               loop={0}
               cursor
