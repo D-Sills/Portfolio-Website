@@ -14,7 +14,6 @@ import FloatingPanel from '@/components/floating-panel';
 import About from '@/components/content/about';
 import Contact from '@/components/content/contact';
 import Work from '@/components/content/work';
-import { SiGamedeveloper } from "react-icons/si";
 
 import { motion } from 'framer-motion';
 
@@ -60,25 +59,28 @@ export default function Home() {
           transition={{ repeat: Infinity, duration: 20, ease: "easeInOut" }}
         />
       
-        <SiGamedeveloper size={48} className="inline-block" />
+        
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-base-content">
           darren sills
         </h1>
-        <p className="text-base-content/70 font-mono uppercase text-sm tracking-widest">
-        <Typewriter
-            words={[
-              "clean code. cozy layouts.",
-              "pixel-perfect, with personality.",
-              "terminal vibes. subtle polish.",
-            ]}
-            loop={0}
-            cursor
-            cursorStyle="_"
-            typeSpeed={50}
-            deleteSpeed={30}
-            delaySpeed={2000}
-          />
+        <p className="text-base-content/70 font-mono uppercase text-sm sm:text-md tracking-widest">
+          <span className="block max-w-xs mx-auto">
+            <Typewriter
+              words={[
+                "Full-stack developer.",
+                "Designer's eye.",
+                "Fast frontends. Robust systems."
+              ]}
+              loop={0}
+              cursor
+              cursorStyle="_"
+              typeSpeed={50}
+              deleteSpeed={30}
+              delaySpeed={2000}
+            />
+          </span>
         </p>
+
         
         {/* grid of big square buttons */}
         <div className="grid grid-cols-3 gap-3 px-4 justify-items-center">

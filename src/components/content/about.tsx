@@ -20,43 +20,25 @@ export default function About() {
           <h3 className="text-lg font-mono font-bold uppercase">
             Darren Sills <span className="text-primary/70 text-lg">ダレン・シルズ</span>
           </h3>
-          <p className="text-sm text-base-content/70">Freelance UI developer & illustrator</p>
           <p className="text-sm">
-            Former frontend dev at{" "}
-            <a href="https://example.com" target="_blank" className="textprimary underline">
-              SoftGrove
-            </a>
+          Freelance UI developer & illustrator
           </p>
+          <p className="text-sm text-base-content/70">Wexford, Ireland</p>
         </div>
       </div>
       
       <hr />
     
       {/* What I Do */}
-      <p className="text-sm">hi! i'm darren, a developer with a keen interest in game dev, web dev and all things ui. i...</p>
-      <ul className="list-disc list-inside space-y-1 text-sm">
-        <li>
-          create <span className="text-accent">illustrated interfaces</span> and pixel art
-        </li>
-        <li>
-          work with <span className="text-accent">React & Tailwind</span> for fast frontends
-        </li>
-        <li>
-          write <span className="text-accent">tiny tools</span> for artists and friends
-        </li>
-        <li>enjoy clean code and cozy layouts</li>
-      </ul>
-    
-      {/* Contact */}
       <p className="text-sm">
-        want to work together? drop me a message at{" "}
-        <a href="mailto:you@example.com" className="text-accent underline">
-          hi@darrensills.dev
-        </a>{" "}
-        :)
+        I’m a full-stack developer with a love for expressive UIs, efficient systems, and tools that feel good to use.
       </p>
-    
-      <hr />
+      <ul className="list-disc list-inside space-y-1 text-sm">
+        <li>Build responsive, accessible frontends using <span className="text-accent">React, Tailwind, and TypeScript</span></li>
+        <li>Architect scalable backends with <span className="text-accent">Node.js, Firebase, .NET Core, and SQL/NoSQL databases</span></li>
+        <li>Explore a wide tech stack: from <span className="text-accent">Kotlin & Rust</span> to <span className="text-accent">Unity, Unreal, and cloud infrastructure</span></li>
+        <li>Blend polish with practicality—clean code, fast load times, and cozy presentation</li>
+      </ul>
     
       {/* Education */}
       <div>
@@ -64,35 +46,31 @@ export default function About() {
         <div className="mt-1 border-l-2 border-base-300 pl-3 text-sm">
           Bachelor of Science in Computer Science, South East Technological University
           <br />
-          <span className="text-xs text-base-content/50">(Graduated Cum Laude 2024)</span>
+          <span className="text-xs text-base-content/50">2020-2024 (Graduated with First Class Honours)</span>
         </div>
         <div className="mt-1 border-l-2 border-base-300 pl-3 text-sm">
           Study Abroad Program, Shibaura Institute of Technology, Japan
           <br />
-          <span className="text-xs text-base-content/50">(2023)</span>
+          <span className="text-xs text-base-content/50">2023</span>
         </div>
       </div>
-      
-      <hr />
       
       {/* Interests */}
       <div>
         <h3 className="text-lg font-mono font-bold uppercase">Interests</h3>
         <ul className="list-disc list-inside space-y-1 text-sm">
-            <li>2D/3D animation</li>
-            <li>pixel art</li>
-            <li>game design</li>
-            <li>web development</li>
-            <li>UI/UX design</li>
+            <li>Gunpla</li>
+            <li>Cooking/baking (though I just picked up baking!)</li>
+            <li>Game development and modding</li>
+            <li>Competitive gaming & E-sports (top ranking player across multiple games & genres)</li>
+            <li>Football</li>
         </ul>
       </div>
-      
-      <hr />
       
       {/*Languages */}
       <div>
         <h3 className="text-lg font-mono font-bold uppercase">Language Proficiency</h3>
-        <div className="mt-1 border-l-2 border-base-300 pl-3 text-sm">i have native fluency in English, and can speak in conversational Japansese.</div>
+        <div className="mt-1 border-l-2 border-base-300 pl-3 text-sm">I have native fluency in English, and can speak in conversational Japansese.</div>
       </div>
     </div>
   );

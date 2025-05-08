@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
 import { useAudio } from '@/components/audio-provider';
 import IconButton from '@/components/icon-button';
+import { FaFileAlt } from 'react-icons/fa';
 
 type CVStickerProps = {
   hoverSoundSrc?: string;
@@ -37,22 +38,13 @@ export default function CVSticker({
 
   const handleClick = () => {
     play(clickSoundSrc);
-
-    // Open in new tab
-    window.open('/CV.pdf', '_blank');
-
-    // Also download it
-    const link = document.createElement('a');
-    link.href = '/CV.pdf';
-    link.download = 'DarrenSills_CV.pdf';
-    link.click();
   };
 
   return (
     <motion.div
       className={`
         fixed z-40 flex flex-col items-center select-none
-        ${isMobile ? 'bottom-20 right-16' : 'bottom-[-3rem] right-6'}
+        ${isMobile ? 'bottom-20 right-8' : 'bottom-[-3rem] right-6'}
         cursor-pointer
       `}
       animate={controls}
@@ -76,13 +68,21 @@ export default function CVSticker({
       {/* Visual */}
       {isMobile ? (
         <IconButton
-          icon={<Image src="/images/CV.png" alt="CV preview" width={32} height={32} />}
-          onClick={handleClick}
-          sizeClass="w-18 h-18"
-          ariaLabel="Download CV"
-          hoverSoundSrc={hoverSoundSrc}
-          clickSoundSrc={clickSoundSrc}
-        />
+        icon={
+          <motion.div
+            animate={{ y: [0, -2, 0], rotate: [0, 1, -1, 0] }}
+            transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+            className="text-4xl text-accent bg-neutral/90 rounded-full shadow-md p-2 border border-base-300 flex items-center justify-center"
+          >
+            <FaFileAlt size={42} />
+          </motion.div>
+        }
+        onClick={handleClick}
+        sizeClass="w-34 h-14" // significantly larger
+        ariaLabel="Download CV"
+        hoverSoundSrc={hoverSoundSrc}
+        clickSoundSrc={clickSoundSrc}
+      />
       ) : (
         <div className="w-[148px] aspect-[0.707] overflow-hidden rounded-md shadow-md border border-base-300 bg-base-100 relative">
           <Image

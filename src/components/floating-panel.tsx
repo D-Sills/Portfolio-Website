@@ -2,8 +2,6 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Rnd } from 'react-rnd';
-
 import { IoClose, IoChevronDown } from 'react-icons/io5';
 import clsx from 'clsx';
 import { useMediaQuery } from 'react-responsive';
