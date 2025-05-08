@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap');
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+}
+
+/* 1. Make your app truly fullscreen, no scrolling ever */
+html, body {
+  height: 100%;
+  overflow-y: auto ;
+  font-family: var(--font-sans);
+  
+  /* Firefox */
+  scrollbar-width: none;
+  /* Safari, Chrome, Edge, Opera */
+  -ms-overflow-style: none;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+
+h1 {
+  white-space: nowrap;
+  font-size: clamp(3rem, 8vw, 5rem);
+  margin-bottom: -4px;
+}
+
+h2 {
+  white-space: nowrap;
+  font-size: clamp(0.5rem, 3vw, 1.25rem);
+  font-weight: 100;
+}
+
+
+.trust {
+  filter: blur(12px) brightness(1.2);
+  mix-blend-mode: lighten;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('/noise.png');
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgba(105, 104, 106, 0.2);
+}
+
+
