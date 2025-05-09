@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.css"
-import { AudioProvider } from '@/components/audio-provider';
+import { AudioProvider } from '@/hooks/audio-provider';
 
 export const metadata: Metadata = {
   title: "Darren Sills",

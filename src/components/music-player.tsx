@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useAudio } from '@/components/audio-provider';
+import { useAudio } from '@/hooks/audio-provider';
 
 type MusicPlayerProps = {
     /** Path to your music file in /public, e.g. "/music/ambient.mp3" */

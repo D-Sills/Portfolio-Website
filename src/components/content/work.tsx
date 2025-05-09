@@ -1,8 +1,13 @@
 'use client';
 
 import React from 'react';
+import SkillTag from '@/components/skill-tag';
+import ProjectCard from '@/components/project-card';
+import GameDevProjects from '@/data/game-dev-projects';
+import WebDevProjects from '@/data/web-dev-projects';
 
 export default function Work() {
+
   return (
     <div className="space-y-8 text-sm">
       {/* Call to Action */}
@@ -23,10 +28,8 @@ export default function Work() {
               'Unity', 'Unreal Engine', 'Git', 'AWS', 'Azure',
               'JupyterLab', 'MySQL', 'MongoDB', 'Docker', 'Postman',
               'Maya', 'Trello', 'Figma', 'Photoshop', 'Illustrator',
-            ].map(tool => (
-              <span key={tool} className="bg-base-300 px-3 py-1 rounded text-sm shadow-sm text-base-content/70">
-                {tool}
-              </span>
+            ].map((tool, i) => (
+              <SkillTag key={tool} text={tool} soundIndex={i} />
             ))}
           </div>
         </div>
@@ -39,10 +42,8 @@ export default function Work() {
               'Python', 'Rust', 'React', 'Next.js', '.NET Core',
               'Node.js', 'Express', 'Java', 'Ruby', 'Haskell',
               'PHP'
-            ].map(lang => (
-              <span key={lang} className="bg-base-300 px-3 py-1 rounded text-sm shadow-sm text-base-content/70">
-                {lang}
-              </span>
+            ].map((lang, i) => (
+              <SkillTag key={lang} text={lang} soundIndex={i} />
             ))}
           </div>
         </div>
@@ -51,30 +52,47 @@ export default function Work() {
       {/* Game Dev Projects */}
       <div>
         <h3 className="text-lg font-mono font-bold uppercase">Game Development</h3>
-        <ul className="list-disc list-inside space-y-2">
-          <li>
-            <strong>Retro Dungeon Crawler (Unity):</strong> A fully custom first-person RPG with reusable systems, a companion website, poster, and full documentation.
-          </li>
-          <li>
-            <strong>Modding Contributions:</strong> Worked on <em>P3R FeMC Project</em> and <em>Pokémon Luminescent Platinum</em> (sprite/UI contributions and scripting tweaks).
-          </li>
-          <li>
-            <strong>Game Jams:</strong> Regular solo participant in small scope jam projects with a focus on polish and UX.
-          </li>
-        </ul>
+        <p className="text-sm text-base-content/70">
+          I&apos;ve worked on a variety of game projects, focusing on custom tools and modular components.
+          Here are some highlights:
+        </p>
+      </div>
+      
+      {/* Project Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        {GameDevProjects.map((project) => (
+          <ProjectCard
+            key={project.title}
+            title={project.title}
+            description={project.description}
+            tags={project.tags}
+            images={project.images}
+            repoLink={project.repoLink}
+          />
+        ))}
       </div>
 
       {/* Web Dev Projects */}
       <div>
         <h3 className="text-lg font-mono font-bold uppercase">Web Development</h3>
-        <ul className="list-disc list-inside space-y-2">
-          <li>
-            <strong>Film Discovery App (React + Firebase):</strong> Browse/search TMDb films, leave reviews, and sign in via Firebase Auth. Includes personalized feeds and secure login.
-          </li>
-          <li>
-            <strong>This Portfolio Site:</strong> Designed and coded from scratch using Next.js, TailwindCSS, DaisyUI, Framer Motion, and subtle audio+UI polish.
-          </li>
-        </ul>
+        <p className="text-sm text-base-content/70">
+          I have experience in building web applications with a focus on user experience and performance.
+          Here are some of my projects:
+        </p>
+      </div>
+      
+      {/* Project Cards (Web Dev) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        {WebDevProjects.map((project) => (
+          <ProjectCard
+            key={project.title}
+            title={project.title}
+            description={project.description}
+            tags={project.tags}
+            images={project.images}
+            repoLink={project.repoLink}
+          />
+        ))}
       </div>
 
       {/* Other */}

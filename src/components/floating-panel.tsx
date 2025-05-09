@@ -77,11 +77,12 @@ export default function FloatingPanel({
                   <div className="w-3 h-3 rounded-full bg-green-500" />
                 </div>
                 <span className="text-sm font-mono">{title}</span>
-                              <IconButton
-                icon={<IoChevronDown size={16} className="text-neutral-content" />}
-                onClick={onClose}
-                ariaLabel="Close panel"
-              />
+                <IconButton
+                  icon={<IoChevronDown size={16} className="text-neutral-content" />}
+                  onClick={onClose}
+                  ariaLabel="Close panel"
+                  clickSoundSrc='sounds/back.mp3'
+                />
               </div>
           
               {/* Scrollable content (fills remaining height) */}
@@ -119,13 +120,12 @@ export default function FloatingPanel({
               <div className="w-3 h-3 rounded-full bg-green-500" />
             </div>
             <span className="text-sm font-mono">{title}</span>
-            <button
+            <IconButton
+              icon={<IoClose size={16} className="text-neutral-content" />}
               onClick={onClose}
-              className="btn btn-xs btn-circle btn-ghost"
-              aria-label="Close"
-            >
-              <IoClose size={16} className="text-neutral-content" />
-            </button>
+              ariaLabel="Close panel"
+              clickSoundSrc='sounds/back.mp3'
+            />
           </div>
 
             {/* Content */}

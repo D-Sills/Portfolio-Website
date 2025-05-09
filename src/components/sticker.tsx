@@ -4,7 +4,7 @@ import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
-import { useAudio } from '@/components/audio-provider';
+import { useAudio } from '@/hooks/audio-provider';
 import IconButton from '@/components/icon-button';
 import { FaFileAlt } from 'react-icons/fa';
 

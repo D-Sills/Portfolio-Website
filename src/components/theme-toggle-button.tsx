@@ -1,7 +1,7 @@
 // components/ThemeToggleButton.tsx
 'use client';
 
-import { useTheme } from '@/components/theme-provider';
+import { useTheme } from '@/hooks/theme-provider';
 import IconButton from '@/components/icon-button';
 import { BsSunFill, BsMoonStarsFill } from 'react-icons/bs';
 

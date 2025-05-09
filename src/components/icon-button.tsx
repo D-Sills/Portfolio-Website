@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { useAudio } from '@/components/audio-provider';
+import { useAudio } from '@/hooks/audio-provider';
 
 type IconButtonProps = {
   /** The icon to render (e.g. `<Mail size={24}/>`). */

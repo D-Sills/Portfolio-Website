@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useAudio } from '@/components/audio-provider';
+import { useAudio } from '@/hooks/audio-provider';
 
 type FolderButtonProps = {
   icon: React.ReactNode;
