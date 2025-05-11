@@ -1,109 +1,99 @@
 'use client';
 
-import React from 'react';
 import { FaEnvelope, FaPhoneAlt, FaGithub } from 'react-icons/fa';
 
 export default function Contact() {
   return (
-    <div className="w-full max-w-4xl mx-auto flex flex-col md:flex-row gap-8 md:gap-12">
-      {/* Left – Form */}
+    <div className="space-y-6 relative">
+      {/* Info Box */}
+      <div className="bg-base-300 rounded-lg p-4 text-sm text-base-content">
+        <p className="font-bold mb-1">Currently open to work inquiries!</p>
+        <p>
+          I’m a full-stack developer with a background in game dev, web dev, and a love for clean
+          tools and UIs. Feel free to reach out via{' '}
+          <a href="mailto:hi@darrensills.dev" className="text-accent underline">
+            email
+          </a>
+          .
+        </p>
+      </div>
+    
+      {/* Header with social icons */}
+      <div className="flex justify-between items-center">
+        <div>
+          <h3 className="font-bold text-sm uppercase text-base-content/70">Work Email</h3>
+          <a
+            href="mailto:hi@darrensills.dev"
+            className="text-accent hover:underline text-sm font-mono"
+          >
+            hi@darrensills.dev
+          </a>
+        </div>
+        <div className="flex gap-4 text-base-content/70">
+          <a href="mailto:hi@darrensills.dev" className="hover:text-accent">
+            <FaEnvelope size={18} />
+          </a>
+          <a href="tel:+353894222561" className="hover:text-accent">
+            <FaPhoneAlt size={18} />
+          </a>
+          <a href="https://github.com/D-Sills" target="_blank" className="hover:text-accent">
+            <FaGithub size={18} />
+          </a>
+        </div>
+      </div>
+
+      {/* Contact Form Grid */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          alert("Form submitted! (not wired up yet)");
+          alert('Form submitted! (not wired up)');
         }}
-        className="flex-1 space-y-6 text-sm font-mono"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono"
       >
-      
-        <h3 className="text-lg font-semibold text-base-content">Get in touch:</h3>
-
-        {/* Subject Field */}
-
-        {/* Name Field */}
-        <div>
-          <label htmlFor="name" className="block mb-0 text-xs uppercase text-base-content/60">
-            Your Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            required
-            placeholder="Jane Doe"
-            className="w-full p-2 rounded-md bg-base-200 border border-base-300 placeholder:text-base-content/40 focus:outline-none focus:ring-2 focus:ring-accent transition"
-          />
+        {/* Left – Inputs */}
+        <div className="space-y-3">
+          {[
+            { id: 'name', label: 'Your name', placeholder: 'Your name' },
+            { id: 'email', label: 'Email', placeholder: 'you@example.com' },
+            { id: 'subject', label: 'Subject', placeholder: 'Subject' },
+          ].map(({ id, label, placeholder }) => (
+            <div key={id}>
+              <label htmlFor={id} className="block text-xs uppercase text-base-content/60 mb-1">
+                {label}
+              </label>
+              <input
+                id={id}
+                type={id === 'email' ? 'email' : 'text'}
+                required
+                placeholder={placeholder}
+                className="w-full bg-base-300 px-3 py-2 rounded border border-base-100 focus:outline-none focus:ring-2 focus:ring-accent"
+              />
+            </div>
+          ))}
         </div>
 
-        {/* Email Field */}
-        <div>
-          <label htmlFor="email" className="block mb-0 text-xs uppercase text-base-content/60">
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            required
-            placeholder="you@example.com"
-            className="w-full p-2 rounded-md bg-base-200 border border-base-300 placeholder:text-base-content/40 focus:outline-none focus:ring-2 focus:ring-accent transition"
-          />
-        </div>
-
-        {/* Message Field */}
-        <div>
-          <label htmlFor="message" className="block mb-0 text-xs uppercase text-base-content/60">
+        {/* Right – Message + Submit */}
+        <div className="flex flex-col h-full">
+          <label htmlFor="message" className="block text-xs uppercase text-base-content/60 mb-1">
             Message
           </label>
           <textarea
             id="message"
             required
             placeholder="What’s up?"
-            rows={5}
-            className="w-full p-2 rounded-md bg-base-200 border border-base-300 placeholder:text-base-content/40 focus:outline-none focus:ring-2 focus:ring-accent transition resize-none"
+            rows={8} // matches approx 3 stacked inputs
+            className="flex-grow bg-base-300 px-3 py-2 rounded border border-base-100 resize-none focus:outline-none focus:ring-2 focus:ring-accent"
           />
+          <div className="mt-4 self-end">
+            <button
+              type="submit"
+              className="bg-accent hover:bg-accent/80 text-white font-bold px-5 py-2 rounded shadow transition-all"
+            >
+              Submit
+            </button>
+          </div>
         </div>
-
-        {/* Submit */}
-        <div>
-          <button
-            type="submit"
-            className="bg-accent hover:bg-accent/80 text-white text-sm px-4 py-2 rounded font-bold shadow transition-all"
-          >
-            <span className="font-mono">Send It!</span>
-          </button>
-        </div>
-
-        <p className="text-xs text-base-content/50 italic mt-2">
-          I usually reply within a day or two — thanks for reaching out!
-        </p>
       </form>
-
-      {/* Divider (desktop only) */}
-      <div className="hidden md:block w-px bg-base-300" />
-
-      {/* Right – Contact Info */}
-      <div className="flex-1 space-y-6">
-        <h3 className="text-lg font-mono font-semibold text-base-content">Reach me at:</h3>
-
-        <div className="flex items-center gap-4">
-          <FaEnvelope className="text-content text-xl" />
-          <a href="mailto:DarrSills@gmail.com" className="text-base text-base-content hover:text-accent transition underline">
-            DarrSills@gmail.com
-          </a>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <FaPhoneAlt className="text-content text-xl" />
-          <a href="tel:+353894222561" className="text-base text-base-content hover:text-accent transition underline">
-            +353 89 422 2561
-          </a>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <FaGithub className="text-content text-xl" />
-          <a href="https://github.com/D-Sills" target="_blank" className="text-base text-base-content hover:text-accent transition underline">
-            github.com/D-Sills
-          </a>
-        </div>
-      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ import WebDevProjects from '@/data/web-dev-projects';
 export default function Work() {
 
   return (
-    <div className="space-y-8 text-sm">
+    <div className="space-y-6 text-sm">
       {/* Call to Action */}
       <div className="bg-base-200 text-base-content p-4 rounded-md shadow-sm border border-base-300">
         <p>
@@ -48,6 +48,29 @@ export default function Work() {
           </div>
         </div>
       </div>
+      
+      {/* Web Dev Projects */}
+      <div>
+        <h3 className="text-lg font-mono font-bold uppercase">Web Development</h3>
+        <p className="text-sm text-base-content/70">
+          I have experience in building web applications with a focus on user experience and performance.
+          Here are some of my projects:
+        </p>
+      </div>
+      
+      {/* Project Cards (Web Dev) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        {WebDevProjects.map((project) => (
+          <ProjectCard
+            key={project.title}
+            title={project.title}
+            description={project.description}
+            tags={project.tags}
+            images={project.images}
+            repoLink={project.repoLink}
+          />
+        ))}
+      </div>
 
       {/* Game Dev Projects */}
       <div>
@@ -61,29 +84,6 @@ export default function Work() {
       {/* Project Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
         {GameDevProjects.map((project) => (
-          <ProjectCard
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            tags={project.tags}
-            images={project.images}
-            repoLink={project.repoLink}
-          />
-        ))}
-      </div>
-
-      {/* Web Dev Projects */}
-      <div>
-        <h3 className="text-lg font-mono font-bold uppercase">Web Development</h3>
-        <p className="text-sm text-base-content/70">
-          I have experience in building web applications with a focus on user experience and performance.
-          Here are some of my projects:
-        </p>
-      </div>
-      
-      {/* Project Cards (Web Dev) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-        {WebDevProjects.map((project) => (
           <ProjectCard
             key={project.title}
             title={project.title}

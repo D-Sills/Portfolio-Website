@@ -12,6 +12,17 @@ const GameDevProjects: Project[] = [
         ],
         repoLink: "https://github.com/yourrepo",
     },
+    {
+        title: "2D Platformer Game",
+        description: "A 2D platformer game built with Unity, featuring custom physics and animations.",
+        tags: ['Unity', 'C#', 'Game Dev', 'Physics'],
+        images: [
+            { src: '/images/projects/ss4.png', caption: 'Level design' },
+            { src: '/images/projects/ss5.png', caption: 'Character animations' },
+            { src: '/images/projects/ss6.png', caption: 'Gameplay mechanics' },
+        ],
+        repoLink: ""
+    },
 ];
 
 export default GameDevProjects;

@@ -8,7 +8,7 @@ export default function About() {
   return (
     <div className="space-y-6">
       {/* Profile */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 ">
         <Image
           src="/images/avi.jpg"
           alt="Your avatar"

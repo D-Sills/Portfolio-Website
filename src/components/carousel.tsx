@@ -4,6 +4,7 @@ import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import Image from 'next/image';
 import { useState } from 'react';
+import IconButton from './icon-button';
 
 type CarouselImage = {
   src: string;
@@ -44,22 +45,24 @@ export default function ImageCarousel({
             />
           </div>
         ))}
+        
+        {/* Navigation Arrows */}
+        <div className="absolute left-2 p-2 rounded z-10 top-1/2 -translate-y-1/2">
+            <IconButton
+                onClick={() => slider.current?.prev()}
+                icon="❮"
+                additionalClasses='btn-ghost hover:btn-ghost'
+            />
+        </div>
+        <div className="absolute right-2 p-2 rounded z-10 top-1/2 -translate-y-1/2">
+            <IconButton
+            onClick={() => slider.current?.next()}
+            icon="❯"
+            additionalClasses='btn-ghost hover:btn-ghost'
+          />
+        </div>
       </div>
-
-      {/* Navigation Arrows */}
-      <button
-        onClick={() => slider.current?.prev()}
-        className="absolute left-2 top-1/2 -translate-y-1/2 btn btn-sm btn-circle btn-ghost bg-base-100/60 z-10"
-      >
-        ❮
-      </button>
-      <button
-        onClick={() => slider.current?.next()}
-        className="absolute right-2 top-1/2 -translate-y-1/2 btn btn-sm btn-circle btn-ghost bg-base-100/60 z-10"
-      >
-        ❯
-      </button>
-
+    
       {/* Dots / Indicators */}
       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
         {images.map((_, i) => (
@@ -67,7 +70,7 @@ export default function ImageCarousel({
             key={i}
             onClick={() => slider.current?.moveToIdx(i)}
             className={`w-2 h-2 rounded-full transition-all ${
-              i === currentSlide ? 'bg-primary' : 'bg-base-300'
+              i === currentSlide ? 'bg-accent' : 'bg-base-300'
             }`}
           />
         ))}

@@ -16,6 +16,7 @@ type IconButtonProps = {
   /** URLs to your audio files in /public, e.g. '/sounds/click.mp3' */
   hoverSoundSrc?: string;
   clickSoundSrc?: string;
+  additionalClasses?: string;
 };
 
 export default function IconButton({
@@ -25,6 +26,7 @@ export default function IconButton({
   ariaLabel = 'Icon Button',
   hoverSoundSrc = '/sounds/Button2.mp3',
   clickSoundSrc = '/sounds/Button3.mp3',
+  additionalClasses = '',
 }: IconButtonProps) {
     const { enabled: audioEnabled } = useAudio();
     
@@ -51,7 +53,8 @@ export default function IconButton({
         `p-0 inline-flex items-center justify-center ` +
         `transform transition duration-200 ease-out ` +
         `hover:scale-110 active:scale-95` +
-        ` btn-neutral `
+        ` btn-neutral ` + // neutral = gray
+        ` ${additionalClasses}` // additional classes
       }
     >
       {icon}
