@@ -54,13 +54,14 @@ export default function ProjectCard({
           <p className="text-sm text-base-content/70">{description}</p>
         </div>
 
-        {/* Tags */}
+        {/* Tags 
         <div className="flex flex-wrap gap-2 justify-start">
           {tags.map((tag, i) => (
             <SkillTag key={tag} text={tag} soundIndex={i} />
           ))}
         </div>
-
+        */}
+        
         {/* View Code */}
         {repoLink && (
           <div>
@@ -68,7 +69,7 @@ export default function ProjectCard({
               href={repoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-mono text-primary hover:text-accent transition"
+              className="inline-flex items-center gap-1 text-sm font-mono text-accent hover:underline transition"
             >
               <span>View Code</span>
               <span className="text-base">↗</span>

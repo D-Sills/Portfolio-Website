@@ -1,6 +1,6 @@
 'use client';
 
-import { FaEnvelope, FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import IconButton from '@/components/icon-button';
 
 interface FooterProps {
@@ -16,17 +16,17 @@ export default function Footer({ className = '' }: FooterProps) {
           <IconButton
             icon={<FaGithub size={20} />}
             ariaLabel="GitHub"
-            onClick={() => window.open('https://github.com/you', '_blank')}
+            onClick={() => window.open('https://github.com/D-Sills', '_blank')}
           />
           <IconButton
-            icon={<FaTwitter size={20} />}
-            ariaLabel="Twitter"
-            onClick={() => window.open('https://twitter.com/you', '_blank')}
+            icon={<FaLinkedin size={20} />}
+            ariaLabel="LinkedIn"
+            onClick={() => window.open('https://www.linkedin.com/in/darren-sills/', '_blank')}
           />
           <IconButton
             icon={<FaEnvelope size={20} />}
             ariaLabel="Email"
-            onClick={() => (window.location.href = 'mailto:you@example.com')}
+            onClick={() => (window.location.href = 'mailto:darrsills@gmail.com')}
           />
         </div>
         

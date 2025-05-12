@@ -49,12 +49,11 @@ export default function Home() {
       {/* Your centered hero/content */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center space-y-4">
         {/* animated background blob */}
-        <motion.div
+        <div
           className="absolute top-1/2 left-1/2 w-[600px] h-[600px] 
                      -translate-x-1/2 -translate-y-1/2
                      bg-purple-500 rounded-full opacity-10 blur-[100px] -z-10"
-          animate={{ scale: [1, 1.1, 1], x: [0, 50, 0], y: [0, -50, 0] }}
-          transition={{ repeat: Infinity, duration: 20, ease: "easeInOut" }}
+  
         />
       
         

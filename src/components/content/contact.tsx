@@ -1,6 +1,6 @@
 'use client';
 
-import { FaEnvelope, FaPhoneAlt, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaPhoneAlt, FaGithub } from 'react-icons/fa';
 
 export default function Contact() {
   return (
@@ -11,7 +11,7 @@ export default function Contact() {
         <p>
           I’m a full-stack developer with a background in game dev, web dev, and a love for clean
           tools and UIs. Feel free to reach out via{' '}
-          <a href="mailto:hi@darrensills.dev" className="text-accent underline">
+          <a href="mailto:darrsills@gmail.com" className="text-accent underline">
             email
           </a>
           .
@@ -23,15 +23,15 @@ export default function Contact() {
         <div>
           <h3 className="font-bold text-sm uppercase text-base-content/70">Work Email</h3>
           <a
-            href="mailto:hi@darrensills.dev"
+            href="mailto:darrsills@gmail.com"
             className="text-accent hover:underline text-sm font-mono"
           >
-            hi@darrensills.dev
+            darrsills@gmail.com
           </a>
         </div>
         <div className="flex gap-4 text-base-content/70">
-          <a href="mailto:hi@darrensills.dev" className="hover:text-accent">
-            <FaEnvelope size={18} />
+          <a href="https://www.linkedin.com/in/darren-sills/" target="_blank" className="hover:text-accent">
+            <FaLinkedin size={18} />
           </a>
           <a href="tel:+353894222561" className="hover:text-accent">
             <FaPhoneAlt size={18} />
@@ -46,7 +46,8 @@ export default function Contact() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          alert('Form submitted! (not wired up)');
+          alert('Form submitted!');
+          handleSubmit(e);
         }}
         className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono"
       >
@@ -96,4 +97,16 @@ export default function Contact() {
       </form>
     </div>
   );
+}
+
+// function to handle form submission
+async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const formData = new FormData(event.currentTarget);
+  const data = Object.fromEntries(formData.entries());
+  console.log('Form submitted:', data);
+  
+  // Here you can send the data to your server or API
+  
+  
 }

@@ -5,17 +5,19 @@ import SkillTag from '@/components/skill-tag';
 import ProjectCard from '@/components/project-card';
 import GameDevProjects from '@/data/game-dev-projects';
 import WebDevProjects from '@/data/web-dev-projects';
+import OtherProjects from '@/data/other-projects';
 
 export default function Work() {
-
+  const combined = [...GameDevProjects, ...WebDevProjects, ...OtherProjects];
+  
   return (
     <div className="space-y-6 text-sm">
       {/* Call to Action */}
       <div className="bg-base-200 text-base-content p-4 rounded-md shadow-sm border border-base-300">
         <p>
           <strong>Currently open to work inquiries!</strong><br />
-          I&aposm a full-stack developer with a background in game dev, web dev, and a love for clean tools and UIs.
-          Feel free to reach out via <a href="mailto:hi@darrensills.dev" className="underline text-primary">email</a>.
+          I’m a full-stack developer with a background in game dev, web dev, and a love for clean tools and UIs.
+          Feel free to reach out via <a href="mailto:hi@darrensills.dev" className="underline text-accent">email</a>.
         </p>
       </div>
 
@@ -48,60 +50,30 @@ export default function Work() {
           </div>
         </div>
       </div>
-      
-      {/* Web Dev Projects */}
-      <div>
-        <h3 className="text-lg font-mono font-bold uppercase">Web Development</h3>
-        <p className="text-sm text-base-content/70">
-          I have experience in building web applications with a focus on user experience and performance.
-          Here are some of my projects:
-        </p>
-      </div>
-      
+   
       {/* Project Cards (Web Dev) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-        {WebDevProjects.map((project) => (
-          <ProjectCard
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            tags={project.tags}
-            images={project.images}
-            repoLink={project.repoLink}
-          />
-        ))}
-      </div>
-
-      {/* Game Dev Projects */}
-      <div>
-        <h3 className="text-lg font-mono font-bold uppercase">Game Development</h3>
-        <p className="text-sm text-base-content/70">
-          I&apos;ve worked on a variety of game projects, focusing on custom tools and modular components.
-          Here are some highlights:
-        </p>
-      </div>
-      
-      {/* Project Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-        {GameDevProjects.map((project) => (
-          <ProjectCard
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            tags={project.tags}
-            images={project.images}
-            repoLink={project.repoLink}
-          />
-        ))}
+        {
+          combined.map((project, i) => (
+            <ProjectCard
+              key={i}
+              title={project.title}
+              description={project.description}
+              tags={project.tags}
+              images={project.images}
+              repoLink={project.repoLink}
+            />
+          ))
+        }
       </div>
 
       {/* Other */}
       <div>
         <h3 className="text-lg font-mono font-bold uppercase">Other Projects & Highlights</h3>
         <ul className="list-disc list-inside space-y-2">
-          <li>Passionate about clean UI, animations, and developer tooling.</li>
-          <li>Top-ranking player across several competitive online games; regular tournament participant.</li>
-          <li>Helped out at SIT&aposs Global Learning Commons in Japan, assisting with language and outreach.</li>
+          <li>Helped out at SIT Global Learning Commons in Japan, assisting with language and outreach.</li>
+          <li>Contributed to open-source projects on GitHub, such as P3R FemC project and Pokemon Luminescent.</li>
+          <li>This site, built with Next.js, Tailwind CSS, and TypeScript :)</li>
         </ul>
       </div>
     </div>
