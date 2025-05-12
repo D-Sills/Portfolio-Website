@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import SkillTag from './skill-tag';
+//import SkillTag from './skill-tag';
 import ImageCarousel from './carousel';
 import LightboxWrapper from './lightbox';
 
@@ -16,7 +16,7 @@ type ProjectCardProps = {
 export default function ProjectCard({
   title,
   description,
-  tags,
+  //tags,
   images,
   repoLink,
 }: ProjectCardProps) {

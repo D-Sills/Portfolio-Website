@@ -15,8 +15,6 @@ import About from '@/components/content/about';
 import Contact from '@/components/content/contact';
 import Work from '@/components/content/work';
 
-import { motion } from 'framer-motion';
-
 export default function Home() {
   // State to manage the visibility of each window/modal
   const [activePanel, setActivePanel] = useState<null | 'about' | 'contact' | 'work'>(null);
