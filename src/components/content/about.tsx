@@ -1,6 +1,3 @@
-//components/content/about.tsx
-'use client';
-
 import React from 'react';
 import Image from 'next/image'
 
@@ -10,7 +7,7 @@ export default function About() {
       {/* Profile */}
       <div className="flex items-center space-x-4 ">
         <Image
-          src="/images/avi.jpg"
+          src="/images/avi.webp"
           alt="Your avatar"
           width={200}
           height={200}

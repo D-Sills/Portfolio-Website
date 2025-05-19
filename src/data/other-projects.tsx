@@ -6,7 +6,7 @@ const OtherProjects: Project[] = [
         description: "A simple ToDo app built with Kotlin and JavaFX",
         tags: ['Kotlin', 'JavaFX', 'Desktop App'],
         images: [
-            { src: '/images/projects/todoapp.png', caption: 'ToDo app screenshot' },
+            { src: '/images/projects/todoapp.webp', caption: 'ToDo app screenshot' },
         ],
         repoLink: "",
     },

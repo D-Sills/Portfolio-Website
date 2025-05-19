@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import SkillTag from '@/components/skill-tag';
 import ProjectCard from '@/components/project-card';

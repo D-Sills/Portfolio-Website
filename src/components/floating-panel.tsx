@@ -81,7 +81,7 @@ export default function FloatingPanel({
                   icon={<IoChevronDown size={16} className="text-neutral-content" />}
                   onClick={onClose}
                   ariaLabel="Close panel"
-                  clickSoundSrc='sounds/back.mp3'
+                  clickSound="close"
                 />
               </div>
           
@@ -124,7 +124,7 @@ export default function FloatingPanel({
               icon={<IoClose size={16} className="text-neutral-content" />}
               onClick={onClose}
               ariaLabel="Close panel"
-              clickSoundSrc='sounds/back.mp3'
+              clickSound="close"
             />
           </div>
 

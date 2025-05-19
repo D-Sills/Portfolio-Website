@@ -33,10 +33,10 @@ export default function Home() {
     >
     <div className="fixed inset-0 z-0 overflow-hidden">
       {/* noise overlay */}
-      <div className="absolute inset-0 bg-[url('/images/noise.jpg')] opacity-5 pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/images/noise.webp')] opacity-5 pointer-events-none" />
 
       {/* Start background music (muted by default) */}
-      <MusicPlayer src="/sounds/BGM.mp3" volume={0.3} />
+      <MusicPlayer />
     
       {/* Top–left button group */}
       <div className="absolute top-4 left-4 flex space-x-2">

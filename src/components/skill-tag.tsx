@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useAudio } from '@/hooks/audio-provider';
+import { skillNoteSounds } from '@/data/sounds';
 
 type SkillTagProps = {
   text: string;
@@ -14,8 +15,8 @@ export default function SkillTag({ text, soundIndex = 0 }: SkillTagProps) {
 
   const playSound = () => {
     if (audioEnabled) {
-      const note = new Audio(`/sounds/note-${soundIndex % 8}.mp3`);
-      note.play();
+      const sound = skillNoteSounds[soundIndex % skillNoteSounds.length];
+      if (!sound.playing()) sound.play();
     }
   };
 
@@ -29,3 +30,4 @@ export default function SkillTag({ text, soundIndex = 0 }: SkillTagProps) {
     </motion.span>
   );
 }
+

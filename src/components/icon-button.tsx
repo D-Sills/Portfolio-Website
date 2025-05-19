@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { useAudio } from '@/hooks/audio-provider';
+import sounds, { playSound } from '@/data/sounds';
 
 type IconButtonProps = {
   /** The icon to render (e.g. `<Mail size={24}/>`). */
@@ -14,8 +15,8 @@ type IconButtonProps = {
   /** Accessible label */
   ariaLabel?: string;
   /** URLs to your audio files in /public, e.g. '/sounds/click.mp3' */
-  hoverSoundSrc?: string;
-  clickSoundSrc?: string;
+  hoverSound?: keyof typeof sounds;
+  clickSound?: keyof typeof sounds;
   additionalClasses?: string;
 };
 
@@ -24,28 +25,19 @@ export default function IconButton({
   onClick,
   sizeClass = 'w-10 h-10',
   ariaLabel = 'Icon Button',
-  hoverSoundSrc = '/sounds/Button2.mp3',
-  clickSoundSrc = '/sounds/Button3.mp3',
+  hoverSound = 'hover',
+  clickSound = 'click',
   additionalClasses = '',
 }: IconButtonProps) {
-    const { enabled: audioEnabled } = useAudio();
-    
-    const play = (src?: string) => {
-        if (audioEnabled && src) {
-          const audio = new Audio(src);
-          audio.play();
-        }
-      };
-    
-    const handleClick = () => {
-        play(clickSoundSrc);
-        onClick?.();
-    };
+  const { enabled: audioEnabled } = useAudio();
 
   return (
     <button
-      onClick={handleClick}
-      onMouseEnter={() => play(hoverSoundSrc)}
+      onClick={() => {
+        playSound(clickSound, audioEnabled);
+        onClick?.();
+      }}
+      onMouseEnter={() => playSound(hoverSound, audioEnabled)}
       aria-label={ariaLabel}
       className={
         `btn btn-circle btn-accent` +    // ghost = no bg, circle = round shape

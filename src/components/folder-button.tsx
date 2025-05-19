@@ -3,38 +3,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useAudio } from '@/hooks/audio-provider';
+import sounds, { playSound } from '@/data/sounds';
 
 type FolderButtonProps = {
   icon: React.ReactNode;
   label: string;
   onClick?: () => void;
-  hoverSoundSrc?: string;
-  clickSoundSrc?: string;
+  hoverSound?: keyof typeof sounds;
+  clickSound?: keyof typeof sounds;
 };
 
 export default function FolderButton({
   icon,
   label,
   onClick,
-  hoverSoundSrc = '/sounds/Button2.mp3',
-  clickSoundSrc = '/sounds/Button3.mp3',
+  hoverSound = 'hover',
+  clickSound = 'click',
 }: FolderButtonProps) {
   const { enabled: audioEnabled } = useAudio();
-
-  const play = (src?: string) => {
-    if (audioEnabled && src) {
-      new Audio(src).play();
-    }
-  };
 
   return (
     <div className="flex flex-col items-center space-y-2">
   <motion.button
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
-    onMouseEnter={() => play(hoverSoundSrc)}
+    onMouseEnter={() => playSound(hoverSound, audioEnabled)}
     onClick={() => {
-      play(clickSoundSrc);
+      playSound(clickSound, audioEnabled);
       onClick?.();
     }}
     aria-label={label}
