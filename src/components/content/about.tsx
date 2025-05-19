@@ -8,17 +8,19 @@ export default function About() {
       <div className="flex items-center space-x-4 ">
         <Image
           src="/images/avi.webp"
-          alt="Your avatar"
+          alt="me :)"
           width={200}
           height={200}
           className="w-35 h-35 rounded-full border border-base-300"
+          priority
+          placeholder="blur"
         />
         <div>
           <h3 className="text-lg font-mono font-bold uppercase">
             Darren Sills <span className="text-primary/70 text-lg">ダレン・シルズ</span>
           </h3>
           <p className="text-sm">
-          Freelance UI developer & illustrator
+            Full-Stack Developer
           </p>
           <p className="text-sm text-base-content/70">Wexford, Ireland</p>
         </div>
