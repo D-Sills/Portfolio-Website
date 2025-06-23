@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
@@ -12,8 +12,14 @@ export default function CVSticker() {
   const controls = useAnimation();
   const { enabled: audioEnabled } = useAudio();
 
-  // Disable on mobile entirely
-  if (isMobile) return null;
+  // Prevent SSR/hydration flicker by mounting before rendering
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Start null, and also hide on mobile
+  if (!mounted || isMobile) return null;
 
   const handleHoverStart = () => {
     playSound('hover', audioEnabled);
@@ -26,12 +32,7 @@ export default function CVSticker() {
 
   const handleClick = () => {
     playSound('bigclick', audioEnabled);
-
-    const link = document.createElement('a');
-    link.href = '/CV.pdf';
-    link.download = 'CV.pdf';
-    document.body.appendChild(link);
-    link.click();
+    window.open('/CV.pdf', '_blank');
   };
 
   return (

@@ -1,73 +1,62 @@
 'use client';
 
+import { useRef, useState } from 'react';
+import Image from 'next/image'
+import emailjs from '@emailjs/browser';
 import { FaLinkedin, FaPhoneAlt, FaGithub } from 'react-icons/fa';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [showCat, setShowCat] = useState(false);
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+    setStatus('sending');
+
+    try {
+      await emailjs.sendForm(
+        'service_h1hicqe',    // e.g. 'service_xxx'
+        'template_oad0o0s',   // e.g. 'template_xxx'
+        formRef.current,
+        'fPCNTZvbLzCTWLEv0'     // e.g. 'user_xxx'
+      );
+      setStatus('sent');
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
+  };
+  
   return (
     <div className="space-y-6 relative">
-      {/* Info Box */}
-      <div className="bg-base-300 rounded-lg p-4 text-sm text-base-content">
-        <p className="font-bold mb-1">Currently open to work inquiries!</p>
-        <p>
-          I’m a full-stack developer with a background in game dev, web dev, and a love for clean
-          tools and UIs. Feel free to reach out via{' '}
-          <a href="mailto:darrsills@gmail.com" className="text-accent underline">
-            email
-          </a>
-          .
-        </p>
-      </div>
-    
-      {/* Header with social icons */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h3 className="font-bold text-sm uppercase text-base-content/70">Work Email</h3>
-          <a
-            href="mailto:darrsills@gmail.com"
-            className="text-accent hover:underline text-sm font-mono"
-          >
-            darrsills@gmail.com
-          </a>
-        </div>
-        <div className="flex gap-4 text-base-content/70">
-          <a href="https://www.linkedin.com/in/darren-sills/" target="_blank" className="hover:text-accent">
-            <FaLinkedin size={18} />
-          </a>
-          <a href="tel:+353894222561" className="hover:text-accent">
-            <FaPhoneAlt size={18} />
-          </a>
-          <a href="https://github.com/D-Sills" target="_blank" className="hover:text-accent">
-            <FaGithub size={18} />
-          </a>
-        </div>
-      </div>
-
-      {/* Contact Form Grid */}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          alert('Form submitted!');
-          handleSubmit(e);
-        }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono"
+      {/* Contact Form */}
+       <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        
       >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono">
         {/* Left – Inputs */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {[
-            { id: 'name', label: 'Your name', placeholder: 'Your name' },
-            { id: 'email', label: 'Email', placeholder: 'you@example.com' },
-            { id: 'subject', label: 'Subject', placeholder: 'Subject' },
-          ].map(({ id, label, placeholder }) => (
+            { id: 'from_name', label: 'Your Name', placeholder: 'Count Cidolfus Orlandeau', type: 'text' },
+            { id: 'reply_to', label: 'Your Email', placeholder: 'you@example.com', type: 'email' },
+            { id: 'subject', label: 'Subject', placeholder: 'I will give you a job!', type: 'text' },
+          ].map(({ id, label, placeholder, type }) => (
             <div key={id}>
               <label htmlFor={id} className="block text-xs uppercase text-base-content/60 mb-1">
                 {label}
               </label>
               <input
                 id={id}
-                type={id === 'email' ? 'email' : 'text'}
+                name={id}
+                type={type}
                 required
                 placeholder={placeholder}
-                className="w-full bg-base-300 px-3 py-2 rounded border border-base-100 focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full bg-base-300 px-3 py-2 rounded border border-base-100 focus:outline-none focus:ring-2 focus:ring-accent text-base-content"
               />
             </div>
           ))}
@@ -80,33 +69,100 @@ export default function Contact() {
           </label>
           <textarea
             id="message"
+            name="message"
             required
-            placeholder="What’s up?"
-            rows={8} // matches approx 3 stacked inputs
-            className="flex-grow bg-base-300 px-3 py-2 rounded border border-base-100 resize-none focus:outline-none focus:ring-2 focus:ring-accent"
+            placeholder="Hi Darren, you're so handsome and talented!"
+            rows={8}
+            className="flex-grow bg-base-300 px-3 py-2 rounded border border-base-100 resize-none focus:outline-none focus:ring-2 focus:ring-accent text-base-content"
           />
-          <div className="mt-4 self-end">
-            <button
-              type="submit"
-              className="bg-accent hover:bg-accent/80 text-white font-bold px-5 py-2 rounded shadow transition-all"
-            >
-              Submit
-            </button>
-          </div>
         </div>
+        </div>
+
+        {/* Footer row: icons on the left, submit on the right */}
+        <div className="flex justify-between items-center mt-4">
+          {/* Social icons */}
+          <div className="flex gap-4 text-base-content/70">
+            <a
+              href="https://www.linkedin.com/in/darren-sills/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-accent"
+            >
+              <FaLinkedin size={18} />
+            </a>
+            <a href="tel:+353894222561" className="hover:text-accent">
+              <FaPhoneAlt size={18} />
+            </a>
+            <a
+              href="https://github.com/D-Sills"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-accent"
+            >
+              <FaGithub size={18} />
+            </a>
+          </div>
+      
+          {/* Submit button, right aligned */}
+          <button
+            type="submit"
+            disabled={status === 'sending'}
+            className="bg-accent hover:bg-accent/80 text-white font-bold px-6 py-2 rounded shadow transition-all disabled:opacity-50"
+          >
+            {status === 'sending'
+              ? 'Sending…'
+              : status === 'sent'
+              ? 'Sent! 🎉'
+              : 'Submit'}
+          </button>
+        </div>
+      
+        {status === 'error' && (
+          <p className="mt-2 text-xs text-red-500 text-center">
+            Oops, something went wrong. Try again?
+          </p>
+        )}
       </form>
+      
+       <hr className="my-6" />
+
+      {/* Cute Cat Reveal */}
+      <div className="text-center">
+        <motion.button
+          onClick={() => setShowCat(prev => !prev)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-primary hover:bg-primary/80 text-white font-semibold px-5 py-2 rounded-2xl shadow-lg transition-all flex items-center gap-2 mx-auto"
+        >
+          {showCat ? '🙈 Hide Cat' : '🐾 Show Cat!'}
+        </motion.button>
+
+        <AnimatePresence>
+          {showCat && (
+            <motion.figure
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.6 }}
+              className="relative inline-block rounded-lg overflow-hidden mt-6"
+            >
+              <Image
+                src="/images/cat.webp"
+                alt="A cute cat"
+                width={1920}
+                height={1080}
+                className="block w-full h-auto"
+                priority
+              />
+
+              <figcaption className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white text-xs italic p-2">
+              Here’s Bobby XIV, isn&apos;t he cute?
+              </figcaption>
+            </motion.figure>
+          )}
+        </AnimatePresence>
+      </div>
+      
     </div>
   );
-}
-
-// function to handle form submission
-async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-  const formData = new FormData(event.currentTarget);
-  const data = Object.fromEntries(formData.entries());
-  console.log('Form submitted:', data);
-  
-  // Here you can send the data to your server or API
-  
-  
 }

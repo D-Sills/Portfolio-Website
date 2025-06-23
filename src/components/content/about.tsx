@@ -13,7 +13,6 @@ export default function About() {
           height={200}
           className="w-35 h-35 rounded-full border border-base-300"
           priority
-          placeholder="blur"
         />
         <div>
           <h3 className="text-lg font-mono font-bold uppercase">
