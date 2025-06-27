@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser';
 import { FaLinkedin, FaPhoneAlt, FaGithub } from 'react-icons/fa';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAudio } from '@/hooks/audio-provider';
-import sounds, { playSound } from '@/data/sounds';
+import { playSound } from '@/data/sounds';
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
