@@ -6,6 +6,11 @@ const sounds = {
     volume: 1.0,
     preload: true,
   }),
+  smallclick: new Howl({
+    src: ['/sounds/small click.mp3'],
+    volume: 1.0,
+    preload: true,
+  }),
   bigclick: new Howl({
     src: ['/sounds/big click.mp3'],
     volume: 1.0,
@@ -13,6 +18,16 @@ const sounds = {
   }),
   hover: new Howl({
     src: ['/sounds/hover.mp3'],
+    volume: 1.0,
+    preload: true,
+  }),
+  meow: new Howl({
+    src: ['/sounds/meow.mp3'],
+    volume: 1.0,
+    preload: true,
+  }),
+  angymeow: new Howl({
+    src: ['/sounds/angy meow.mp3'],
     volume: 1.0,
     preload: true,
   }),

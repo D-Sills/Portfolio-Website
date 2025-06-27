@@ -4,18 +4,40 @@ import ProjectCard from '@/components/project-card';
 import GameDevProjects from '@/data/game-dev-projects';
 import WebDevProjects from '@/data/web-dev-projects';
 import OtherProjects from '@/data/other-projects';
+import { Project } from '@/data/project';
+import { useState } from 'react';
 
 export default function Work() {
   const combined = [...GameDevProjects, ...WebDevProjects, ...OtherProjects];
+  
+  function getAllTags(projects: Project[]): string[] {
+    const tagSet = new Set<string>();
+    projects.forEach((proj) => proj.tags.forEach((tag) => tagSet.add(tag)));
+    return Array.from(tagSet).sort();
+  }
+  
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const allTags = getAllTags(combined);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const filteredProjects = selectedTags.length === 0
+    ? combined
+    : combined.filter((project) =>
+         selectedTags.every((tag) => project.tags.includes(tag))
+    );
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
   
   return (
     <div className="space-y-6 text-sm">
       {/* Call to Action */}
       <div className="bg-base-200 text-base-content p-4 rounded-md shadow-sm border border-base-300">
         <p>
-          <strong>Currently open to work inquiries!</strong><br />
-          I’m a full-stack developer with a background in game dev, web dev, and a love for clean tools and UIs.
-          Feel free to reach out via <a href="mailto:hi@darrensills.dev" className="underline text-accent">email</a>.
+          Check out my <a href="https://github.com/D-Sills" className="underline text-accent" target="_blank" rel="noopener noreferrer">GitHub</a> for more projects and code samples! 
+          There&apos;s lots more projects there that I can&apos;t visually showcase here.
         </p>
       </div>
 
@@ -29,7 +51,7 @@ export default function Work() {
               'JupyterLab', 'MySQL', 'MongoDB', 'Docker', 'Postman',
               'Maya', 'Trello', 'Figma', 'Photoshop', 'Illustrator',
             ].map((tool, i) => (
-              <SkillTag key={tool} text={tool} soundIndex={i} />
+              <SkillTag key={tool} text={tool} soundIndex={i} onClick={() => toggleTag(tool)} selected={selectedTags.includes(tool)} />
             ))}
           </div>
         </div>
@@ -43,16 +65,16 @@ export default function Work() {
               'Node.js', 'Express', 'Java', 'Ruby', 'Haskell',
               'PHP'
             ].map((lang, i) => (
-              <SkillTag key={lang} text={lang} soundIndex={i} />
+              <SkillTag key={lang} text={lang} soundIndex={i} onClick={() => toggleTag(lang)} selected={selectedTags.includes(lang)} />
             ))}
           </div>
         </div>
       </div>
    
-      {/* Project Cards (Web Dev) */}
+      {/* Filtered Project Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
         {
-          combined.map((project, i) => (
+          filteredProjects.map((project, i) => (
             <ProjectCard
               key={i}
               title={project.title}

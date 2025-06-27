@@ -5,11 +5,14 @@ import Image from 'next/image'
 import emailjs from '@emailjs/browser';
 import { FaLinkedin, FaPhoneAlt, FaGithub } from 'react-icons/fa';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useAudio } from '@/hooks/audio-provider';
+import sounds, { playSound } from '@/data/sounds';
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [showCat, setShowCat] = useState(false);
+  const { enabled: audioEnabled } = useAudio();
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,9 +45,9 @@ export default function Contact() {
         {/* Left – Inputs */}
         <div className="space-y-4">
           {[
-            { id: 'from_name', label: 'Your Name', placeholder: 'Count Cidolfus Orlandeau', type: 'text' },
+            { id: 'from_name', label: 'Your Name', placeholder: 'John Doe', type: 'text' },
             { id: 'reply_to', label: 'Your Email', placeholder: 'you@example.com', type: 'email' },
-            { id: 'subject', label: 'Subject', placeholder: 'I will give you a job!', type: 'text' },
+            { id: 'subject', label: 'Subject', placeholder: 'Hello!', type: 'text' },
           ].map(({ id, label, placeholder, type }) => (
             <div key={id}>
               <label htmlFor={id} className="block text-xs uppercase text-base-content/60 mb-1">
@@ -106,6 +109,8 @@ export default function Contact() {
           {/* Submit button, right aligned */}
           <button
             type="submit"
+            onMouseEnter={() => playSound('hover', audioEnabled)}
+            onClick={() => playSound('click', audioEnabled)}
             disabled={status === 'sending'}
             className="bg-accent hover:bg-accent/80 text-white font-bold px-6 py-2 rounded shadow transition-all disabled:opacity-50"
           >
@@ -129,7 +134,16 @@ export default function Contact() {
       {/* Cute Cat Reveal */}
       <div className="text-center">
         <motion.button
-          onClick={() => setShowCat(prev => !prev)}
+          onClick={() => {
+            if (showCat) {
+              playSound('angymeow', audioEnabled);
+            }
+            else {
+              playSound('meow', audioEnabled);
+            }
+            setShowCat((prev) => !prev);
+          }}
+          onMouseEnter={() => playSound('hover', audioEnabled)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="bg-primary hover:bg-primary/80 text-white font-semibold px-5 py-2 rounded-2xl shadow-lg transition-all flex items-center gap-2 mx-auto"
