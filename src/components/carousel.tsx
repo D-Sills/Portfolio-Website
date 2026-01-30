@@ -46,7 +46,7 @@ export default function ImageCarousel({
           </div>
         ))}
         
-        {/* Navigation Arrows */}
+        {/* Navi */}
         <div className="absolute left-2 p-2 rounded z-10 top-1/2 -translate-y-1/2">
             <IconButton
                 onClick={() => slider.current?.prev()}
@@ -63,7 +63,7 @@ export default function ImageCarousel({
         </div>
       </div>
     
-      {/* Dots / Indicators */}
+      {/* Dots */}
       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
         {images.map((_, i) => (
           <button

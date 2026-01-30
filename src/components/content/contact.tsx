@@ -21,10 +21,10 @@ export default function Contact() {
 
     try {
       await emailjs.sendForm(
-        'service_h1hicqe',    // e.g. 'service_xxx'
-        'template_oad0o0s',   // e.g. 'template_xxx'
+        'service_h1hicqe',
+        'template_oad0o0s',
         formRef.current,
-        'fPCNTZvbLzCTWLEv0'     // e.g. 'user_xxx'
+        'fPCNTZvbLzCTWLEv0'
       );
       setStatus('sent');
     } catch (err) {
@@ -35,14 +35,13 @@ export default function Contact() {
   
   return (
     <div className="space-y-6 relative">
-      {/* Contact Form */}
-       <form
+      <form
         ref={formRef}
         onSubmit={handleSubmit}
         
       >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono">
-        {/* Left – Inputs */}
+        {/* Left*/}
         <div className="space-y-4">
           {[
             { id: 'from_name', label: 'Your Name', placeholder: 'John Doe', type: 'text' },
@@ -65,7 +64,7 @@ export default function Contact() {
           ))}
         </div>
 
-        {/* Right – Message + Submit */}
+        {/* Right */}
         <div className="flex flex-col h-full">
           <label htmlFor="message" className="block text-xs uppercase text-base-content/60 mb-1">
             Message
@@ -81,7 +80,7 @@ export default function Contact() {
         </div>
         </div>
 
-        {/* Footer row: icons on the left, submit on the right */}
+        {/* Footer */}
         <div className="flex justify-between items-center mt-4">
           {/* Social icons */}
           <div className="flex gap-4 text-base-content/70">
@@ -106,7 +105,7 @@ export default function Contact() {
             </a>
           </div>
       
-          {/* Submit button, right aligned */}
+          {/* Submit */}
           <button
             type="submit"
             onMouseEnter={() => playSound('hover', audioEnabled)}
@@ -131,7 +130,7 @@ export default function Contact() {
       
        <hr className="my-6" />
 
-      {/* Cute Cat Reveal */}
+      {/* :3 */}
       <div className="text-center">
         <motion.button
           onClick={() => {

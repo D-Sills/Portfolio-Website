@@ -33,7 +33,7 @@ export default function Work() {
   
   return (
     <div className="space-y-6 text-sm">
-      {/* Call to Action */}
+      {/* intro */}
       <div className="bg-base-200 text-base-content p-4 rounded-md shadow-sm border border-base-300">
         <p>
           Check out my <a href="https://github.com/D-Sills" className="underline text-accent" target="_blank" rel="noopener noreferrer">GitHub</a> for more projects and code samples! 
@@ -41,7 +41,7 @@ export default function Work() {
         </p>
       </div>
 
-      {/* Tools and Stacks */}
+      {/* Tools */}
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div>
           <h3 className="text-lg font-mono font-bold uppercase">Tools & Platforms</h3>
@@ -71,7 +71,7 @@ export default function Work() {
         </div>
       </div>
    
-      {/* Filtered Project Cards */}
+      {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
         {
           filteredProjects.map((project, i) => (

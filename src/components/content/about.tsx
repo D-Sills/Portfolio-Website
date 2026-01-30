@@ -27,7 +27,7 @@ export default function About() {
       
       <hr />
     
-      {/* What I Do */}
+      {/* stuff */}
       <p className="text-sm">
         I’m a full-stack developer with a love for expressive UIs, efficient systems, and tools that feel good to use.
       </p>

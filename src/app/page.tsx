@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client';
 
 import React, { useState } from 'react';
@@ -24,15 +23,14 @@ export default function Home() {
   return (
     <>
     {/* 
-      This div fills all space above the footer (flex-1), 
-      centers its content, and is itself relative so we can absolutely position inside it.
+      centers content
     */}
      <div
       className="flex-1 flex flex-col items-center justify-start px-4 relative pt-[10vh] sm:pt-[8vh]"
       
     >
     <div className="fixed inset-0 z-0 overflow-hidden">
-      {/* noise overlay */}
+      {/* overlay */}
       <div className="absolute inset-0 bg-[url('/images/noise.webp')] opacity-5 pointer-events-none" />
 
       {/* Start background music (muted by default) */}
@@ -44,9 +42,9 @@ export default function Home() {
         <ThemeToggleButton />
       </div>
       
-      {/* Your centered hero/content */}
+      {/* content */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center space-y-4">
-        {/* animated background blob */}
+        {/* animated background blob, doesnt really work lule */}
         <div
           className="absolute top-1/2 left-1/2 w-[600px] h-[600px] 
                      -translate-x-1/2 -translate-y-1/2
@@ -93,7 +91,7 @@ export default function Home() {
             label="contact"
             onClick={() => setActivePanel('contact')}
           />
-          {/* add more as needed */}
+         
         </div>
         
       </div>
@@ -101,8 +99,7 @@ export default function Home() {
       
       <CVSticker />
       
-       {/* Footer is now _inside_ this same container,
-          absolutely pinned to the bottom */}
+       {/* Footer */}
       <Footer className="absolute bottom-2 left-0 w-full"/>
     </div>
     

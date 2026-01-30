@@ -1,4 +1,3 @@
-// components/ThemeToggleButton.tsx
 'use client';
 
 import { useTheme } from '@/hooks/theme-provider';

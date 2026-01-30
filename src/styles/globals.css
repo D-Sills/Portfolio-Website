@@ -4,7 +4,6 @@
   themes: all;
 }
 
-/* 1. Make your app truly fullscreen, no scrolling ever */
 html, body {
   height: 100%;
   overflow-y: auto ;

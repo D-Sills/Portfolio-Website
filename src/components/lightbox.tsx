@@ -22,7 +22,7 @@ export default function LightboxWrapper({
       index={index}
       slides={images.map(({ src, caption }) => ({
         src,
-        description: caption, // 👈 this shows up as a caption
+        description: caption,
       }))}
       controller={{
         closeOnBackdropClick: true,

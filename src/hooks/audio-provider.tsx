@@ -1,4 +1,3 @@
-// components/AudioProvider.tsx
 'use client';
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
@@ -20,7 +19,6 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Custom hook for convenience
 export function useAudio() {
   const ctx = useContext(AudioContext);
   if (!ctx) throw new Error('useAudio must be used within <AudioProvider>');

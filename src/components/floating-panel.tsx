@@ -1,4 +1,3 @@
-// components/FloatingPanel.tsx
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
@@ -70,6 +69,7 @@ export default function FloatingPanel({
               </div>
             </motion.div>
           ) : (
+            
             <motion.div
               className={clsx(
                 "fixed left-1/2 top-1/2 z-50",
