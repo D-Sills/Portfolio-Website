@@ -23,11 +23,6 @@ export default function Footer({ className = '' }: FooterProps) {
             ariaLabel="LinkedIn"
             onClick={() => window.open('https://www.linkedin.com/in/darren-sills/', '_blank')}
           />
-          <IconButton
-            icon={<FaEnvelope size={20} />}
-            ariaLabel="Email"
-            onClick={() => (window.location.href = 'mailto:darrsills@gmail.com')}
-          />
         </div>
         
         {/* name and copyright*/}
