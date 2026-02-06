@@ -1,6 +1,6 @@
 'use client';
 
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import IconButton from '@/components/icon-button';
 
 interface FooterProps {

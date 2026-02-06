@@ -1,17 +1,14 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import Image from 'next/image'
 import emailjs from '@emailjs/browser';
 import { FaLinkedin, FaPhoneAlt, FaGithub } from 'react-icons/fa';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useAudio } from '@/hooks/audio-provider';
 import { playSound } from '@/data/sounds';
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
-  const [showCat, setShowCat] = useState(false);
   const { enabled: audioEnabled } = useAudio();
   
   const handleSubmit = async (e: React.FormEvent) => {
@@ -127,54 +124,6 @@ export default function Contact() {
           </p>
         )}
       </form>
-      
-       <hr className="my-6" />
-
-      {/* :3 */}
-      <div className="text-center">
-        <motion.button
-          onClick={() => {
-            if (showCat) {
-              playSound('angymeow', audioEnabled);
-            }
-            else {
-              playSound('meow', audioEnabled);
-            }
-            setShowCat((prev) => !prev);
-          }}
-          onMouseEnter={() => playSound('hover', audioEnabled)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-primary hover:bg-primary/80 text-white font-semibold px-5 py-2 rounded-2xl shadow-lg transition-all flex items-center gap-2 mx-auto"
-        >
-          {showCat ? '🙈 Hide Cat' : '🐾 Show Cat!'}
-        </motion.button>
-
-        <AnimatePresence>
-          {showCat && (
-            <motion.figure
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.6 }}
-              className="relative inline-block rounded-lg overflow-hidden mt-6"
-            >
-              <Image
-                src="/images/cat.webp"
-                alt="A cute cat"
-                width={1920}
-                height={1080}
-                className="block w-full h-auto"
-                priority
-              />
-
-              <figcaption className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white text-xs italic p-2">
-              Here’s Bobby XIV, isn&apos;t he cute?
-              </figcaption>
-            </motion.figure>
-          )}
-        </AnimatePresence>
-      </div>
       
     </div>
   );
