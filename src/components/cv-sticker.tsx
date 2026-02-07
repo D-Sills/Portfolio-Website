@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
 import { useAudio } from '@/hooks/audio-provider';
@@ -9,10 +9,9 @@ import { playSound } from '@/data/sounds';
 
 export default function CVSticker() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const controls = useAnimation();
   const { enabled: audioEnabled } = useAudio();
 
-  // Prevent SSR/hydration flicker by mounting before rendering
+  // Prevent SSR/hydration flicker by mounting before rendering, idk claude said so
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
@@ -23,11 +22,6 @@ export default function CVSticker() {
 
   const handleHoverStart = () => {
     playSound('hover', audioEnabled);
-    controls.start({ y: -12 });
-  };
-
-  const handleHoverEnd = () => {
-    controls.start({ y: 0 });
   };
 
   const handleClick = () => {
@@ -38,15 +32,32 @@ export default function CVSticker() {
   return (
     <motion.div
       className="fixed bottom-[-3rem] right-6 z-40 flex flex-col items-center select-none cursor-pointer"
-      animate={controls}
       initial={{ y: 0 }}
+      whileHover={{ y: -12 }}
       onHoverStart={handleHoverStart}
-      onHoverEnd={handleHoverEnd}
+      transition={{
+        type: "spring",
+        stiffness: 420,
+        damping: 24,
+      }}
       onClick={handleClick}
     >
       {/* Label */}
       <motion.div
-        className="mb-2 text-xs text-center bg-neutral px-3 py-1 rounded-full shadow border border-base-300 font-mono text-neutral-content"
+        className="relative mb-2 text-xs text-center bg-neutral px-3 py-1 rounded-full shadow border border-base-300 font-mono text-neutral-content
+          after:content-['']
+          after:absolute
+          after:left-1/2
+          after:-translate-x-1/2
+          after:top-full
+      
+          after:border-l-[6px]
+          after:border-l-transparent
+          after:border-r-[6px]
+          after:border-r-transparent
+          after:border-t-[6px]
+          after:border-t-neutral
+        "
       >
         Grab my CV!
       </motion.div>

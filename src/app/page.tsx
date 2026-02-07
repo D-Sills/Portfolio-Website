@@ -7,7 +7,8 @@ import ThemeToggleButton from '@/components/theme-toggle-button';
 import FolderButton from '@/components/folder-button';
 import MusicPlayer from '@/components/music-player';
 import Footer from '../components/footer';
-import CVSticker from '../components/sticker';
+import CVSticker from '../components/cv-sticker';
+import CatSticker from '@/components/cat-sticker';
 import { FaUser as User, FaMailBulk as Mail, FaCode as Code } from 'react-icons/fa';
 import FloatingPanel from '@/components/floating-panel';
 import About from '@/components/content/about';
@@ -18,8 +19,6 @@ export default function Home() {
   // State to manage the visibility of each window/modal
   const [activePanel, setActivePanel] = useState<null | 'about' | 'contact' | 'work'>(null);
 
-
-  
   return (
     <>
     {/* 
@@ -44,7 +43,7 @@ export default function Home() {
       
       {/* content */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center space-y-4">
-        {/* animated background blob, doesnt really work lule */}
+        {/* animated background blob, doesnt really work lule, just doing random shit */}
         <div
           className="absolute top-1/2 left-1/2 w-[600px] h-[600px] 
                      -translate-x-1/2 -translate-y-1/2
@@ -97,6 +96,7 @@ export default function Home() {
       </div>
       </div>
       
+      <CatSticker  />
       <CVSticker />
       
        {/* Footer */}
@@ -112,7 +112,7 @@ export default function Home() {
       <Work />
     </FloatingPanel>
     
-    <FloatingPanel open={activePanel === 'contact'} onClose={() => setActivePanel(null)} title="~/contact">
+    <FloatingPanel open={activePanel === 'contact'} onClose={() => setActivePanel(null)} title="~/contact" height ="370px">
       <Contact />
     </FloatingPanel>
     

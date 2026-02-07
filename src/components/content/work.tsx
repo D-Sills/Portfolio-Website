@@ -47,9 +47,9 @@ export default function Work() {
           <h3 className="text-lg font-mono font-bold uppercase">Tools & Platforms</h3>
           <div className="flex flex-wrap gap-2">
             {[
-              'Unity', 'Unreal Engine', 'Git', 'AWS', 'Azure',
+              'Unity', 'Unreal Engine', 'Git', 'AWS',
               'JupyterLab', 'MySQL', 'MongoDB', 'Docker', 'Postman',
-              'Maya', 'Trello', 'Figma', 'Photoshop', 'Illustrator',
+              'Blender', 'Trello', 'Figma', 'Photoshop', 'Illustrator',
             ].map((tool, i) => (
               <SkillTag key={tool} text={tool} soundIndex={i} onClick={() => toggleTag(tool)} selected={selectedTags.includes(tool)} />
             ))}

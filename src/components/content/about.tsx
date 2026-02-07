@@ -44,12 +44,10 @@ export default function About() {
         <div className="mt-1 border-l-2 border-base-300 pl-3 text-sm">
           Bachelor of Science in Computer Science, South East Technological University
           <br />
-          <span className="text-xs text-base-content/50">2020-2024 (Graduated with First Class Honours)</span>
+          <span className="text-xs text-base-content/50">(Graduated with First Class Honours)</span>
         </div>
         <div className="mt-1 border-l-2 border-base-300 pl-3 text-sm">
           Study Abroad Program, Shibaura Institute of Technology, Japan
-          <br />
-          <span className="text-xs text-base-content/50">2023</span>
         </div>
       </div>
       
@@ -57,11 +55,11 @@ export default function About() {
       <div>
         <h3 className="text-lg font-mono font-bold uppercase">Interests</h3>
         <ul className="list-disc list-inside space-y-1 text-sm">
-            <li>Gunpla</li>
-            <li>Cooking/baking (though I just picked up baking!)</li>
+            <li>Cooking/baking </li>
             <li>Game development and modding</li>
             <li>Competitive gaming & E-sports (top ranking player across multiple games & genres)</li>
             <li>Football</li>
+            <li>Gunpla</li>
         </ul>
       </div>
       

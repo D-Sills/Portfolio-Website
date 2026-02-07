@@ -12,11 +12,15 @@ export default function FloatingPanel({
   open,
   onClose,
   title = 'Window',
+  height = '550px',
+  width = '800px',
   children,
 }: {
   open: boolean;
   onClose: () => void;
   title?: string;
+  width?: number | string;
+  height?: number | string;
   children: React.ReactNode;
 }) {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -73,10 +77,10 @@ export default function FloatingPanel({
             <motion.div
               className={clsx(
                 "fixed left-1/2 top-1/2 z-50",
-                "w-[800px] h-[550px]",
                 "-translate-x-1/2 -translate-y-1/2",
                 "rounded-xl shadow-2xl bg-neutral text-neutral-content flex flex-col"
               )}
+              style={{ width, height }}
               initial={{ scale: 0.9, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
