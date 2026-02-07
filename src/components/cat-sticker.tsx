@@ -2,11 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useMediaQuery } from 'react-responsive';
 import { useAudio } from '@/hooks/audio-provider';
 import { playSound } from '@/data/sounds';
 
 export default function CatSticker() {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
   const { enabled: audioEnabled } = useAudio();
+
+   if (isMobile) return null;
 
     const handleHoverStart = () => {
       playSound('meow', audioEnabled);
