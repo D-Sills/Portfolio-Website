@@ -26,7 +26,7 @@ export default function CVSticker() {
 
   const handleClick = () => {
     playSound('bigclick', audioEnabled);
-    window.open('/General CV.pdf', '_blank');
+    window.open('/Darren_Sills_CV_.pdf', '_blank');
   };
 
   return (
@@ -65,7 +65,7 @@ export default function CVSticker() {
       {/* Visual */}
       <div className="w-[148px] aspect-[0.707] overflow-hidden rounded-md shadow-md border border-base-300 bg-base-100 relative">
         <Image
-          src="/images/CV_1.webp"
+          src="/images/cv_.webp"
           alt="CV preview"
           fill
           className="object-cover"
