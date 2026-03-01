@@ -96,7 +96,7 @@ export default function Home() {
       </div>
       </div>
       
-      <CatSticker  />
+      {/* <CatSticker  /> */}
       <CVSticker />
       
        {/* Footer */}
