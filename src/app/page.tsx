@@ -110,7 +110,7 @@ export default function Home() {
         <FileIconButton
           icon={<FaFilePdf size={22} />}
           label="cv.pdf"
-          href="/Darren_Sills_CV_.pdf"
+          href="/Darren_Sills_CV.pdf"
         />
       </div>
       
