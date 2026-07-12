@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap');
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: all;
+  themes: dracula, pastel; 
 }
 
 html, body {
@@ -39,7 +39,6 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url('/noise.png');
   opacity: 0.05;
   pointer-events: none;
   z-index: 0;

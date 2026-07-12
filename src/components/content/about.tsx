@@ -35,7 +35,6 @@ export default function About() {
         <li>Build responsive, accessible frontends using <span className="text-accent">React, Tailwind, and TypeScript</span></li>
         <li>Architect scalable backends with <span className="text-accent">Node.js, Firebase, .NET Core, and SQL/NoSQL databases</span></li>
         <li>Explore a wide tech stack: from <span className="text-accent">Kotlin & Rust</span> to <span className="text-accent">Unity, Unreal, and cloud infrastructure</span></li>
-        <li>Blend polish with practicality—clean code, fast load times, and cozy presentation</li>
       </ul>
     
       {/* Education */}
@@ -57,9 +56,9 @@ export default function About() {
         <ul className="list-disc list-inside space-y-1 text-sm">
             <li>Cooking/baking </li>
             <li>Game development and modding</li>
-            <li>Competitive gaming & E-sports (top ranking player across multiple games & genres)</li>
+            <li>Competitive gaming (top ranking player across multiple games & genres)</li>
             <li>Football</li>
-            <li>Gunpla</li>
+            <li>Travel</li>
         </ul>
       </div>
       

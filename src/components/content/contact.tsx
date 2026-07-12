@@ -1,12 +1,12 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaLinkedin, FaPhoneAlt, FaGithub } from 'react-icons/fa';
 import { useAudio } from '@/hooks/audio-provider';
 import { playSound } from '@/data/sounds';
 
-export default function Contact() {
+export default function Contact({ onSuccess }: { onSuccess?: () => void }) {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const { enabled: audioEnabled } = useAudio();
@@ -30,6 +30,14 @@ export default function Contact() {
     }
   };
   
+  useEffect(() => {
+    if (status !== 'sent') return;
+    const timer = setTimeout(() => {
+      onSuccess?.();
+    }, 1400);
+    return () => clearTimeout(timer);
+  }, [status, onSuccess]);
+  
   return (
     <div className="space-y-6 relative">
       <form
@@ -41,7 +49,6 @@ export default function Contact() {
         {/* Left*/}
         <div className="space-y-4">
           {[
-            { id: 'from_name', label: 'Your Name', placeholder: 'John Doe', type: 'text' },
             { id: 'reply_to', label: 'Your Email', placeholder: 'you@example.com', type: 'email' },
             { id: 'subject', label: 'Subject', placeholder: 'Hello!', type: 'text' },
           ].map(({ id, label, placeholder, type }) => (
@@ -102,7 +109,6 @@ export default function Contact() {
             </a>
           </div>
       
-          {/* Submit */}
           <button
             type="submit"
             onMouseEnter={() => playSound('hover', audioEnabled)}
@@ -123,8 +129,7 @@ export default function Contact() {
             Oops, something went wrong. Try again?
           </p>
         )}
-      </form>
-      
+      </form> 
     </div>
   );
 }

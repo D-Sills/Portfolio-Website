@@ -36,7 +36,7 @@ export default function Work() {
       {/* intro */}
       <div className="bg-base-200 text-base-content p-4 rounded-md shadow-sm border border-base-300">
         <p>
-          Check out my <a href="https://github.com/D-Sills" className="underline text-accent" target="_blank" rel="noopener noreferrer">GitHub</a> for more projects and code samples! 
+          Check out my <a href="https://github.com/D-Sills" className="underline text-accent" target="_blank" rel="noopener noreferrer">GitHub</a>  for more projects and code samples! 
           There&apos;s lots more projects there that I can&apos;t visually showcase here.
         </p>
       </div>

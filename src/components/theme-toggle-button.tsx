@@ -9,8 +9,8 @@ export default function ThemeToggleButton() {
 
   return (
     <IconButton
-      icon={theme === 'dark' ? <BsSunFill size={20} /> : <BsMoonStarsFill size={20} />}
-      ariaLabel={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      icon={theme === 'dracula' ? <BsSunFill size={20} /> : <BsMoonStarsFill size={20} />}
+      ariaLabel={`Switch to ${theme === 'dracula' ? 'light' : 'dark'} mode`}
       onClick={toggleTheme}
     />
   );

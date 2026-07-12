@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import clsx from 'clsx';
 import { useAudio } from '@/hooks/audio-provider';
 import sounds, { playSound } from '@/data/sounds';
 
@@ -33,15 +34,13 @@ export default function IconButton({
       }}
       onMouseEnter={() => playSound(hoverSound, audioEnabled)}
       aria-label={ariaLabel}
-      className={
-        `btn btn-circle btn-accent` +    
-        `${sizeClass} ` +                
-        `p-0 inline-flex items-center justify-center ` +
-        `transform transition duration-200 ease-out ` +
-        `hover:scale-110 active:scale-95` +
-        ` btn-neutral ` + 
-        ` ${additionalClasses}`
-      }
+      className={clsx(
+      'btn btn-square btn-neutral rounded-lg',
+      sizeClass,
+      'p-0 inline-flex items-center justify-center',
+      'transform transition duration-200 ease-out hover:scale-110 active:scale-95',
+      additionalClasses
+    )}
     >
       {icon}
     </button>
